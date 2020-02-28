@@ -50,7 +50,7 @@ public class CounterServer {
         // 初始化路径
         FileUtils.forceMkdir(new File(dataPath));
 
-        // 这里让 raft RPC 和业务 RPC 使用同一个 RPC server, 通常也可以分开
+        // 这里让 raft RPC 和业务 RPC 使用同一个 RPC server, 通常也可以分开 TOKNOW 客户端使用一套RPC集群作为向RAFT集群通信的网关.
         final RpcServer rpcServer = new RpcServer(serverId.getPort());
         RaftRpcServerFactory.addRaftRequestProcessors(rpcServer);
         // 注册业务处理器

@@ -79,7 +79,7 @@ public class CounterStateMachine extends StateMachineAdapter {
 
             CounterClosure closure = null;
             if (iter.done() != null) {
-                // This task is applied by this node, get value from closure to avoid additional parsing.
+                // This task is applied by this node (means invoking with Node.apply(TASK) on the same node) , get value from closure to avoid additional parsing.
                 closure = (CounterClosure) iter.done();
                 counterOperation = closure.getCounterOperation();
             } else {
